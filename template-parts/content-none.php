@@ -13,12 +13,12 @@
 	<header class="page-header">
 		<h1 class="page-title">
 			<?php 
-			if ( is_404() ) { esc_html_e( 'Page not available', 'hemsida2go' );
+			if ( is_404() ) { esc_html_e( 'Sidan är tyvärr inte tillgänglig', 'hemsida2go' );
 			} else if ( is_search() ) {
 				/* translators: %s = search query */
-				printf( esc_html__( 'Nothing found for &ldquo;%s&rdquo;', 'hemsida2go'), '<em>' . get_search_query() . '</em>' );
+				printf( esc_html__( 'Ingenting kunde hittas för &ldquo;%s&rdquo;', 'hemsida2go'), '<em>' . get_search_query() . '</em>' );
 			} else {
-				esc_html_e( 'Nothing Found', 'hemsida2go' );
+				esc_html_e( 'Ingenting kunde hittas', 'hemsida2go' );
 			}
 			?>
 		</h1>
@@ -27,46 +27,25 @@
 	<div class="page-content">
 		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
 
-			<p><?php printf( wp_kses( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'hemsida2go' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
+			<p><?php printf( wp_kses( __( 'Redo att publicera ditt första inlägg? <a href="%1$s">Börja här!</a>.', 'hemsida2go' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
 
 		<?php elseif ( is_search() ) : ?>
 
-			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'hemsida2go' ); ?></p>
+			<p><?php esc_html_e( 'Tyvärr kunde vi inte hitta det du sökte efter, vänligen försök igen med nya sökord.', 'hemsida2go' ); ?></p>
 			<?php get_search_form(); ?>
 		
 		<?php elseif ( is_404() ) : ?>
 
-			<p><?php esc_html_e( 'You seem to be lost. To find what you are looking for check out the most recent articles below or try a search:', 'hemsida2go' ); ?></p>
+			<p><?php esc_html_e( 'Du verkar ha hamnat vilse. För att hitta det du letar efter så kan du söka här:', 'hemsida2go' ); ?></p>
 			<?php get_search_form(); ?>
 			
 		<?php else : ?>
 
-			<p><?php esc_html_e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'hemsida2go' ); ?></p>
+			<p><?php esc_html_e( 'Det verkar som att vi inte kan hitta det du söker efter, testa att söka!', 'hemsida2go' ); ?></p>
 			<?php get_search_form(); ?>
 
 		<?php endif; ?>
 	</div><!-- .page-content -->
 	
-	<?php
-    if ( is_404() || is_search() ) {
-    ?>
-		<h1 class="page-title secondary-title"><?php esc_html_e( 'Most recent posts:', 'hemsida2go' ); ?></h1>
-		<?php
-		// Get the 6 latest posts
-		$args = array(
-			'posts_per_page' => 6
-		);
-		$latest_posts_query = new WP_Query( $args );
-		// The Loop
-		if ( $latest_posts_query->have_posts() ) {
-				while ( $latest_posts_query->have_posts() ) {
-					$latest_posts_query->the_post();
-					// Get the standard index page content
-					get_template_part( 'template-parts/content', get_post_format() );
-				}
-		}
-		/* Restore original Post Data */
-		wp_reset_postdata();
-	} // endif	
-	?>
+
 </section><!-- .no-results -->

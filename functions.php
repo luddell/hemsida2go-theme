@@ -74,8 +74,8 @@ function hemsida2go_setup() {
 	) );
 
 	add_theme_support( 'custom-logo', array(
-			'height'      => 160,
-			'width'       => 160,
+			'height'      => 240,
+			'width'       => 240,
 			'flex-height' => true,
 	) );
 

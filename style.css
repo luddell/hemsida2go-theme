@@ -760,7 +760,6 @@ a:active {
 		position: relative;
 		min-height: 3.5em;
 		max-width: 58em;
-		margin: 0 auto;
 		padding: 0 3.5em;
 	}
 	
@@ -1164,7 +1163,7 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-# Widgets
+# Widgets inactive
 --------------------------------------------------------------*/
 #secondary {
 	position: relative;
@@ -1176,6 +1175,7 @@ a:active {
 	margin: 0 0 1.5em;
 	padding: 1.8em;
 	background: #fff;
+	display: none;
 }
 
 @media screen and (min-width: 45em) {
@@ -2430,3 +2430,4 @@ img.alignleft {
 .site-footer a {
 	color: #fff;
 }
+

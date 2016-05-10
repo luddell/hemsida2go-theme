@@ -27,7 +27,7 @@ function hemsida2go_custom_header_setup() {
 		'default-image'          => '',
 		'default-text-color'     => 'ffffff',
 		'width'                  => 1600,
-		'height'                 => 420,
+		'height'                 => 800,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'hemsida2go_header_style',
 		'admin-head-callback'    => 'hemsida2go_admin_header_style',
